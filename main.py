@@ -1,3 +1,4 @@
+# Code from: https://blog.bearer.sh/consume-webhooks-with-python/
 from flask import Flask, request, Response
 
 app = Flask(__name__)
