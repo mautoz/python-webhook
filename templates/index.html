@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <!-- Masthead -->
+    <header class="masthead text-white text-center pt-4">
+    <div class="overlay"></div>
+    <img src="{{ url_for('imagem', nome_arquivo="review.png") }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h1 class="mb-5">Bem-vindo ao classificador de Review</h1>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <p>A ideia por trás do classificador é bem simples! Serão apresentados na tela um review por vez e você deve classificá-lo se o assunto se referir ou não a pessoas com deficiência (PcD).</p>
+                <p>Por exemplo, o seguinte review é não se trata de PcD: "O app é muito bom, mas está com problemas na tela de contato. Sempre tem erro.</p>
+                <p>Já o seguinte exemplo é relativo a PcD: "O app é útil, mas é de difícil uso para quem não tem visão e utiliza somente áudio."</p>
+                <p>Obrigado pela colaboração</p>
+            </div>
+        </div>
+    </div>
+    </header>
+    <img src="{{ url_for('imagem', nome_arquivo="review.png") }}">
+{% endblock conteudo %}
