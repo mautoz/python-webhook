@@ -6,6 +6,7 @@
 
  body {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #dbdcdd;
   }
   
   h1,
@@ -18,6 +19,14 @@
     font-weight: 700;
   }
 
+.classifier {
+  background-color: #fff;
+}
+
+form {
+  background-color: rgb(208, 230, 255);
+}
+
 header.masthead {
     position: relative;
     background-color: #52a5f8;
@@ -26,7 +35,7 @@ header.masthead {
     padding-top: 8rem;
     padding-bottom: 8rem;
   }
-  
+
   header.masthead .overlay {
     position: absolute;
     background-color: #52a5f8;

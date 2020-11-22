@@ -1,19 +1,40 @@
 {% extends "template.html" %}
 {% block conteudo %}
-    <!-- Masthead -->
-    <header class="masthead text-white text-center pt-4">
-    <div class="overlay"></div>
-    <img src="{{ url_for('imagem', nome_arquivo="review.png") }}">
+  
     <div class="container">
-    
-        <fieldset>          
-          <p>App: {{ review[0] }} </p>
-          <p>Review: {{ review[1] }}</p>
-          <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
-          <a href="{{ url_for('index') }}" class="btn btn-danger">Voltar</a>          
-        </fieldset>
-    
-
+        <img src="{{ url_for('imagem', nome_arquivo="stars.png") }}" width="100%">
+        <div class="classifier">
+            <form action="{{ url_for('atualizar') }}" method="post"  enctype="multipart/form-data">
+                <fieldset>
+                    <input type="hidden" name="id" value="{{ review[0] }}">          
+                    <p class="h3 text-center pt-5"><b>Nome do App: </b><i>{{ review[1] }}</i></p>
+                    <p class="h3 text-center"><b>Review do usuário: </b><i>{{ review[2] }}</i></p>
+                    <p class="h3 text-center pt-2"><b>O review é de acessibilidade?</b></p>
+                    <div class="form-group">
+                        <select class="custom-select" name="a11y" required>
+                            <option disabled selected value> -- Selecione uma opção: -- </option>
+                            <option value="0">NÃO! Não é de acessibilidade!</option>
+                            <option value="1">Sim! É de acessibilidade!</option>
+                        </select>
+                    </div>
+                    <p class="h5 text-center pt-3">Se o review for sobre acessibilidade (a11y), digite as palvras ou expressões chaves que te fizeram deicidir por isso. Por exemplo: "too bright", "eyestrain", "escuro", "falha no botão".</p>
+                    <p class="h5 text-center">Utilize vírgulas para separar as palavras/expressões.</p>
+                    <div class="form-group">
+                        <label for="console">Palavras/Expressões chaves:</label>
+                        <input type="text" id="palavras" name="palavras" class="form-control">
+                    </div>
+                    <p class="h5 text-center">Caso o review esteja confuso, incompleto ou por qualquer outra razão não seja possível classificá-lo, por favor, clique em "Pular".</p>
+                    <div class="d-flex justify-content-around">                
+                        <button type="submit" class="btn btn-primary">
+                            &#128512; Classificar
+                        </button>                
+                        <a href="{{ url_for('classificar') }}" type="submit" class="btn btn-danger">
+                            &#128533; "Pular"
+                        </a>
+                    </div>          
+                </fieldset>
+            </form>  
+        </div>
     </div>
     </header>
 
