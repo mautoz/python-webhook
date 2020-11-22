@@ -21,7 +21,7 @@
 header.masthead {
     position: relative;
     background-color: #52a5f8;
-    background: url("/imagens/reviews.png") no-repeat center center;
+    background: url("/imagens/review.png") no-repeat center center;
     background-size: cover;
     padding-top: 8rem;
     padding-bottom: 8rem;
@@ -104,7 +104,7 @@ header.masthead {
   .call-to-action {
     position: relative;
     background-color: #343a40;
-    background: url("/imagens/reviews.png") no-repeat center center;
+    background: url("/imagens/review.png") no-repeat center center;
     background-size: cover;
     padding-top: 7rem;
     padding-bottom: 7rem;

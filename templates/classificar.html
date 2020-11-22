@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <!-- Masthead -->
+    <header class="masthead text-white text-center pt-4">
+    <div class="overlay"></div>
+    <img src="{{ url_for('imagem', nome_arquivo="review.png") }}">
+    <div class="container">
+    
+        <fieldset>          
+          <p>App: {{ review[0] }} </p>
+          <p>Review: {{ review[1] }}</p>
+          <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+          <a href="{{ url_for('index') }}" class="btn btn-danger">Voltar</a>          
+        </fieldset>
+    
+
+    </div>
+    </header>
+
+{% endblock conteudo %}
