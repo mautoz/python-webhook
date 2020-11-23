@@ -1,11 +1,10 @@
 from datetime import datetime
-from flask import Flask, request, redirect, session, flash, url_for, send_from_directory
+from flask import Flask, request, redirect, flash, url_for, send_from_directory
 from flask.templating import render_template
 import os
 
-from werkzeug import datastructures
-
 import db_aux
+
 
 db_credentials = {
     'host' : os.getenv('POSTGRES_HOST'),
@@ -15,10 +14,10 @@ db_credentials = {
     'port' : os.getenv('POSTGRES_PORT') 
 }
 
-# conn = db_aux.connect_db(db_credentials)
 
 app = Flask(__name__)
 app.secret_key = 'ach2018'
+
 
 @app.route('/')
 def index():
@@ -26,16 +25,19 @@ def index():
         "index.html"
     )
 
+
 @app.route('/imagens/<nome_arquivo>')
 def imagem(nome_arquivo):
     return send_from_directory('imagens', nome_arquivo)
+
 
 @app.route('/classificar')
 def classificar():
     with db_aux.connect_db(db_credentials) as conn:
         review = db_aux.random_review(conn, "reviews_data")
-        total = db_aux.total_rows(conn, "reviews_data")
-    return render_template('classificar.html', titulo = "Classificar Review", review=review, total=total)
+        print(f'Review_id: {review[0]}')
+    return render_template('classificar.html', titulo = "Classificar Review", review=review)
+
 
 @app.route('/atualizar', methods=['POST',])
 def atualizar():
@@ -53,9 +55,11 @@ def atualizar():
     flash(f'Classificado em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}! Obrigado! Um novo review está disponível abaixo! Por favor, classifique o máximo que puder!')
     return redirect(url_for('classificar'))
 
+
 @app.route('/reportar')
 def reportar():
     return render_template('reportar.html', titulo = "Reportar erro")
+
 
 @app.route('/enviar', methods=['POST',])
 def enviar():

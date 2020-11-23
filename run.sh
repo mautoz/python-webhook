@@ -1,8 +1,10 @@
 #! /bin/bash
 
+# Não mexer nesta parte
 export FLASK_APP=main.py
 export FLASK_ENV=development
 
+# Altere de acordo com o BD
 export POSTGRES_HOST=localhost
 export POSTGRES_DATABASE=reviews-classifier
 export POSTGRES_USER=postgres

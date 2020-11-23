@@ -5,7 +5,7 @@
         <img src="{{ url_for('imagem', nome_arquivo="stars.png") }}" width="100%">
         <div class="classifier p-3">
             <h1>{{ titulo }}</h1>
-            <p class="text-center">Caso o contato apresente algum erro ou você queira enviar um print do erro, encaminhe uma mensagem para: mauricio.ozaki@usp.br.</p>
+            <p class="text-center">Caso o contato apresente algum erro ou você queira enviar um print do erro, encaminhe uma mensagem para: <b>mauricio.ozaki@usp.br</b>.</p>
             <form action="{{ url_for('enviar') }}" method="post"  enctype="multipart/form-data">
                 <table class="table table-striped">
                     <tbody>
@@ -19,7 +19,7 @@
                         </tr>
                         <tr>
                             <th scope="row">Comentário:</th>
-                            <td><textarea class="form-control" id="conteudo" name="conteudo" rows="3"></textarea></td>
+                            <td><textarea class="form-control" id="conteudo" name="conteudo" rows="3" required></textarea></td>
                         </tr>
                     </tbody>
                 </table>

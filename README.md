@@ -4,20 +4,45 @@
 
 Este repositório faz parte do projeto de ACH2018 e funciona em comjunto com o [review-classifier](https://github.com/mautoz/reviews-classifier).
 
+# Pré requisitos
+
+    O código foi feito no Ubuntu 18.04.5 LTS e precisa ter instalado:
+
+- Python 3.7
+- Postgres >=10.14
+- Flask 1.1.2
+
+Não esqueça de antes de executar esta parte, inserir no bd os reviews.
+
 # Instruções
 
-1. Colocar na mesma pasta o ngrok
+1. Os reviews exibidos aqui foram retirados do mesmo bd do repositório [review-classifier](https://github.com/mautoz/reviews-classifier), sendo assim, verifique com cuidado suas configurações no PostgreSQL e altere no [run](run.sh)!
 
-2. export FLASK_APP=main.py
+2. Rode o [Run](run.sh):
+```
+bash run.sh
+```
+Por padrão, a porta é 5000, então acesse: [localhost:5000](http://localhost:5000/) ou [127.0.0.1:5000](http://127.0.0.1:5000/).
 
-3. export FLASK_ENV=development
+3. Está pronto para fazer as classificações!
 
-4. python3 -m flask run
+4. (Opcional) Como são muitos reviews, pode ser necessário pedir ajuda! É possivel criar uma URL para seu ambiente local. Caso queira fazer isso, acesse: https://ngrok.com/, cadastre-se e baixe o arquivo! É rápido!
 
-5. ./ngrok http <port>
-Mesma porta do código python
+5. (Opcional) Na pasta do ngrok, rode:
+```
+ ./ngrok http porta
+``` 
+Se você não alterou nada no Flask, substitua porta por 5000.
 
-6. Pegar o forwarding do ngrok e colocar no postman (methods=POST). Colocar no 'body', formato json, algumas mensagem.
+6. (Opcional) É só passar a url do "Forwarding" para as pessoas que queiram classificar!
+
+# Troubleshooting
+
+- Verifique se em sua máquina o correto para rodar Python é "python3' ou 'python'.
+- É possível que não rode com Python 3.6 e sua máquina tem ambos (3.6 e 3.7) instalados. Verifique a versão certa e altere se necessário com:
+```
+sudo update-alternatives --config python3
+```
 
 # Credito das imagens
 

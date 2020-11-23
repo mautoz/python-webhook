@@ -1,11 +1,13 @@
-from datetime import date
 import psycopg2 as db
 from random import randrange
 import random as rand
 import datetime
+import unidecode
 from contextlib import contextmanager
 
+
 rand.seed(datetime.datetime.now())
+
 
 @contextmanager
 def connect_db(db_credentials):
@@ -13,6 +15,7 @@ def connect_db(db_credentials):
     print("Conectando ao BD!")
     yield conn
     conn.close()
+
 
 def insert_db(conn, table, review):
     try:
@@ -39,6 +42,7 @@ def insert_db(conn, table, review):
         print("- Something get wrong! The file wasn't inserted!")
         raise
 
+
 def insert_contato(conn, mensagem):
     try:
         cur = conn.cursor()
@@ -63,9 +67,19 @@ def insert_contato(conn, mensagem):
         raise
 
 
+# Recebe uma lista de palavras fornecidas pelo usuário e
+# as insere na tabela 'a11y_words'
 def insert_review_words(conn, id, words):
     for word in words:
-        insert_word(conn, id, word)
+        if len(word) > 0:
+            word_modified = formatar_palavra_chave(word)
+            insert_word(conn, id, word_modified)
+
+
+# Padroniza as palavras do a11y_words! São removidos acentos 
+# ç e convertido para minúsculo
+def formatar_palavra_chave(palavra):
+    return unidecode.unidecode(palavra).lower()
 
 
 def update_is_a11y(conn, id, value):
@@ -101,29 +115,35 @@ def insert_word(conn, id, word):
         print("- Something get wrong! The word wasn't inserted!")
         raise
 
+
 def search_file(conn, table, id):
     cur = conn.cursor()
     cur.execute(f"SELECT review_app, review_raw FROM {table} WHERE id={id}")
     current_review = cur.fetchone()
     return current_review
 
+
+# O usuário precisa receber um review que ainda não tenha sido classificado e
+# de preferência de maneira aleatória
 def random_review(conn, table):
     cur = conn.cursor()
-    nrows = total_rows(conn, table)
+    nrows = max_id(conn, table)
+    print(f'nrows = {nrows}')
     random_id = randrange(nrows)
 
-    cur.execute(f"SELECT id, review_app, review_raw FROM {table} WHERE id={random_id}")
+    cur.execute(f"SELECT id, review_app, review_raw FROM {table} WHERE id={random_id} and is_a11y_human=-1")
     current_review = cur.fetchone()
 
     while current_review == None:
         random_id = randrange(nrows)
-        cur.execute(f"SELECT id, review_app, review_raw FROM {table} WHERE id={random_id}")
+        cur.execute(f"SELECT id, review_app, review_raw FROM {table} WHERE id={random_id} and is_a11y_human=-1")
         current_review = cur.fetchone()
     
     return current_review
 
-def total_rows(conn, table):
+
+def max_id(conn, table):
     cur = conn.cursor()
-    cur.execute(f"SELECT count(*) FROM {table} WHERE is_a11y_human=-1")
+    cur.execute(f"SELECT max(id) FROM {table}")
     result = cur.fetchone()
     return result[0]
