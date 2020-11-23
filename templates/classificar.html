@@ -3,15 +3,24 @@
   
     <div class="container">
         <img src="{{ url_for('imagem', nome_arquivo="stars.png") }}" width="100%">
-        <div class="classifier">
+        <div class="classifier p-3">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %} 
+                    <ul id="messages" class="list-unstyled">
+                    {% for message in messages %}
+                        <li class="alert alert-success">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
             <form action="{{ url_for('atualizar') }}" method="post"  enctype="multipart/form-data">
                 <fieldset>
                     <input type="hidden" name="id" value="{{ review[0] }}">          
                     <p class="h3 text-center pt-5"><b>Nome do App: </b><i>{{ review[1] }}</i></p>
                     <p class="h3 text-center"><b>Review do usuário: </b><i>{{ review[2] }}</i></p>
                     <p class="h3 text-center pt-2"><b>O review é de acessibilidade?</b></p>
-                    <div class="form-group">
-                        <select class="custom-select" name="a11y" required>
+                    <div class="form-group w-80">
+                        <select class="custom-select col-md-12" name="a11y" required>
                             <option disabled selected value> -- Selecione uma opção: -- </option>
                             <option value="0">NÃO! Não é de acessibilidade!</option>
                             <option value="1">Sim! É de acessibilidade!</option>
@@ -24,7 +33,7 @@
                         <input type="text" id="palavras" name="palavras" class="form-control">
                     </div>
                     <p class="h5 text-center">Caso o review esteja confuso, incompleto ou por qualquer outra razão não seja possível classificá-lo, por favor, clique em "Pular".</p>
-                    <div class="d-flex justify-content-around">                
+                    <div class="d-flex justify-content-around pb-4">                
                         <button type="submit" class="btn btn-primary">
                             &#128512; Classificar
                         </button>                
@@ -36,6 +45,6 @@
             </form>  
         </div>
     </div>
-    </header>
+
 
 {% endblock conteudo %}

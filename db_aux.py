@@ -39,6 +39,67 @@ def insert_db(conn, table, review):
         print("- Something get wrong! The file wasn't inserted!")
         raise
 
+def insert_contato(conn, mensagem):
+    try:
+        cur = conn.cursor()
+        query = f"INSERT INTO contato ( \
+                registro, \
+                nome, \
+                email, \
+                conteudo \
+            ) VALUES (%s, %s, %s, %s)"
+        values = (
+            datetime.datetime.now(),
+            mensagem["nome"],
+            mensagem["email"],
+            mensagem["conteudo"]
+        )
+        cur.execute(query, values)
+        print("+ Inserting...")
+        conn.commit()
+    except Exception as err:
+        print(err)
+        print("- Something get wrong! The contact wasn't registred!")
+        raise
+
+
+def insert_review_words(conn, id, words):
+    for word in words:
+        insert_word(conn, id, word)
+
+
+def update_is_a11y(conn, id, value):
+    try:
+        cur = conn.cursor()
+        query = f"UPDATE reviews_data SET is_a11y_human = (%s) WHERE id = (%s)"
+        values = (value, id)
+        cur.execute(query, values)
+        print("+ Updating human feedback...")
+        conn.commit()
+    except Exception as err:
+        print(err)
+        print("- Something get wrong! Update wasn't done!")
+        raise
+
+
+def insert_word(conn, id, word):
+    try:
+        cur = conn.cursor()
+        query = f"INSERT INTO a11y_words ( \
+                reviews_data_id, \
+                word \
+            ) VALUES (%s, %s)"
+        values = (
+            id,
+            word
+        )
+        cur.execute(query, values)
+        print("+ Inserting word...")
+        conn.commit()
+    except Exception as err:
+        print(err)
+        print("- Something get wrong! The word wasn't inserted!")
+        raise
 
 def search_file(conn, table, id):
     cur = conn.cursor()

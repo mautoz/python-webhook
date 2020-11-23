@@ -1,6 +1,9 @@
+from datetime import datetime
 from flask import Flask, request, redirect, session, flash, url_for, send_from_directory
 from flask.templating import render_template
 import os
+
+from werkzeug import datastructures
 
 import db_aux
 
@@ -15,6 +18,7 @@ db_credentials = {
 # conn = db_aux.connect_db(db_credentials)
 
 app = Flask(__name__)
+app.secret_key = 'ach2018'
 
 @app.route('/')
 def index():
@@ -33,12 +37,36 @@ def classificar():
         total = db_aux.total_rows(conn, "reviews_data")
     return render_template('classificar.html', titulo = "Classificar Review", review=review, total=total)
 
-@app.route('/atualizar')
+@app.route('/atualizar', methods=['POST',])
 def atualizar():
+    reviews_data_id = request.form['id']
+    is_a11y = request.form['a11y']
+    palavras = request.form['palavras']
+    print(reviews_data_id)
+    print(is_a11y)
+    words = palavras.split(',')
+    words = [palavra.strip() for palavra in words]
+    print(words)
     with db_aux.connect_db(db_credentials) as conn:
-        review = db_aux.random_review(conn, "reviews_data")
-        total = db_aux.total_rows(conn, "reviews_data")
-    return render_template('classificar.html', titulo = "Classificar Review", review=review, total=total)
+        db_aux.insert_review_words(conn, reviews_data_id, words)
+        db_aux.update_is_a11y(conn, reviews_data_id, is_a11y)
+    flash(f'Classificado em {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}! Obrigado! Um novo review está disponível abaixo! Por favor, classifique o máximo que puder!')
+    return redirect(url_for('classificar'))
+
+@app.route('/reportar')
+def reportar():
+    return render_template('reportar.html', titulo = "Reportar erro")
+
+@app.route('/enviar', methods=['POST',])
+def enviar():
+    mensagem = {}
+    mensagem["nome"] = request.form['nome']
+    mensagem["email"] = request.form['email']
+    mensagem["conteudo"] = request.form['conteudo']
+    with db_aux.connect_db(db_credentials) as conn:
+        db_aux.insert_contato(conn, mensagem)
+    return render_template('obrigado.html', titulo = "Obrigado pelo retorno!")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

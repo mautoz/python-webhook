@@ -1,0 +1,15 @@
+{% extends "template.html" %}
+{% block conteudo %}
+  
+    <div class="container">
+        <img src="{{ url_for('imagem', nome_arquivo="stars.png") }}" width="100%">
+        <div class="classifier p-3">
+            <h1>{{ titulo }}</h1>
+            <p class="h4 pt-3">Seu feedback é muito útil e caso você tenha deixado um contato e precise de retorno, responderei assim que possível!</p>
+            <div class="d-flex justify-content-around pb-4">
+                <img src="{{ url_for('imagem', nome_arquivo="check.png") }}" width="30%">
+            </div>
+        </div>
+    </div>
+
+{% endblock conteudo %}

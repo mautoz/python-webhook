@@ -1,32 +1,40 @@
 {% extends "template.html" %}
 {% block conteudo %}
     <!-- Masthead -->
-    <header class="masthead text-white text-center pt-4">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-9 mx-auto">
-                <h1 class="mb-5">Bem-vindo ao classificador de Review</h1>
-            </div>
-            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                <p>A ideia por trás do classificador é bem simples! Serão apresentados na tela um review por vez e você deve classificá-lo se o assunto se referir ou não a pessoas com deficiência (PcD).</p>
-                <p>Por exemplo, o seguinte review é não se trata de PcD: "O app é muito bom, mas está com problemas na tela de contato. Sempre tem erro.</p>
-                <p>Já o seguinte exemplo é relativo a PcD: "O app é útil, mas é de difícil uso para quem não tem visão e utiliza somente áudio."</p>
-                <p>Obrigado pela colaboração</p>
+
+    <section class="masthead bg-light text-center">
+        <div class="container">
+            <img src="{{ url_for('imagem', nome_arquivo="review.png") }}">
+        </div>
+    </section>
+    <section class="classifier features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5">Bem-vinda/Bem-vindo ao classificador de Review</h1>
+                </div>
+                <div class="col-xl-9 mx-auto">
+                    <p class="h4">A ideia por trás do classificador é bem simples! Será apresentado na tela um review de app por vez e você deve classificá-lo como sendo ou não de Acessibilidade ou A11y (Accessibility).</p>
+                    <p class="h4">Por exemplo, o seguinte review <b>não</b> se trata de A11y:</p> 
+                    <p class="h4 text-danger">"O app é muito bom, mas não atualiza mais!"</p>
+
+                    <p class="h4">Já o seguinte exemplo <b>é</b> relativo a A11y:</p>
+                    <p class="h4 text-success">"O app é útil, mas é de difícil utilizar para quem não tem visão e utiliza somente audição".</p>
+                    <p class="h4">E as <b>palavras chaves</b> seriam "visão" e "audição" que podem ser inseridas no campo apropriado.</p>
+
+                    <p class="h4">Ou o seguinte exemplo também <b>é</b> relativo a A11y:</p>
+                    <p class="h4 text-success">"Não consegui utilizar o app, sem poder dar zoom, não enxerguei nada!".</p>
+                    <p class="h4">Aqui, as <b>palavras chaves</b> seriam "zoom" e "enxerguei" que podem ser inseridas no campo apropriado.</p>
+                    
+                    <p class="h4">Vamos começar a classificação?</p>
+                    <div class="d-flex justify-content-around">                              
+                        <a href="{{ url_for('classificar') }}" type="submit" class="btn btn-success">
+                            <span class="h4">Classificar</span>
+                        </a>
+                    </div>  
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xl-9 mx-auto">
-                <h1 class="mb-5">Bem-vindo ao classificador de Review</h1>
-            </div>
-            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                <p>A ideia por trás do classificador é bem simples! Serão apresentados na tela um review por vez e você deve classificá-lo se o assunto se referir ou não a pessoas com deficiência (PcD).</p>
-                <p>Por exemplo, o seguinte review é não se trata de PcD: "O app é muito bom, mas está com problemas na tela de contato. Sempre tem erro.</p>
-                <p>Já o seguinte exemplo é relativo a PcD: "O app é útil, mas é de difícil uso para quem não tem visão e utiliza somente áudio."</p>
-                <p>Obrigado pela colaboração</p>
-            </div>
-        </div>
-    </div>
-    </header>
+    </section>
 
 {% endblock conteudo %}
