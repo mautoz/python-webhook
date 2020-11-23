@@ -6,7 +6,7 @@ Este repositório faz parte do projeto de ACH2018 e funciona em comjunto com o [
 
 # Pré requisitos
 
-    O código foi feito no Ubuntu 18.04.5 LTS e precisa ter instalado:
+O código foi feito no Ubuntu 18.04.5 LTS e precisa ter instalado:
 
 - Python 3.7
 - Postgres >=10.14
