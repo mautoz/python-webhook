@@ -2,7 +2,6 @@
 {% block conteudo %}
   
     <div class="container">
-        <img src="{{ url_for('imagem', nome_arquivo="stars.png") }}" width="100%">
         <div class="classifier p-3">
             {% with messages = get_flashed_messages() %}
                 {% if messages %} 
@@ -15,9 +14,22 @@
             {% endwith %}
             <form action="{{ url_for('atualizar') }}" method="post"  enctype="multipart/form-data">
                 <fieldset>
-                    <input type="hidden" name="id" value="{{ review[0] }}">          
-                    <p class="h3 text-center pt-5"><b>Nome do App: </b><i>{{ review[1] }}</i></p>
-                    <p class="h3 text-center"><b>Review do usuário: </b><i>{{ review[2] }}</i></p>
+                    <h2 class="pb-2">Review:</h2>
+                    <input type="hidden" name="id" value="{{ review[0] }}">
+                    <table class="table table-striped pb-2">
+                        <tbody>
+                            <tr class="h4">
+                                <th scope="row"><b>Nome do App: </b></th>
+                                <td><i>{{ review[1] }}</i></td>
+                            </tr>
+                            <tr class="h4">
+                                <th scope="row"><b>Review do usuário: </b></th>
+                                <td><i>{{ review[2] }}</i></td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                    <hr>
+                    <p class="h5 text-center"><b>Caso o review esteja confuso, incompleto, em uma língua diferente de inglês, apareça somente "NaN" ou por qualquer outra razão não seja possível classificá-lo, por favor, clique em "Pular".</b></p>         
                     <p class="h3 text-center pt-2"><b>O review é de acessibilidade?</b></p>
                     <div class="form-group w-80">
                         <select class="custom-select col-md-12" name="a11y" required>
@@ -32,7 +44,6 @@
                         <label for="console">Palavras/Expressões chaves:</label>
                         <input type="text" id="palavras" name="palavras" class="form-control">
                     </div>
-                    <p class="h5 text-center">Caso o review esteja confuso, incompleto ou por qualquer outra razão não seja possível classificá-lo, por favor, clique em "Pular".</p>
                     <div class="d-flex justify-content-around pb-4">                
                         <button type="submit" class="btn btn-primary">
                             &#128512; Classificar
@@ -44,6 +55,7 @@
                 </fieldset>
             </form>  
         </div>
+        <img src="{{ url_for('imagem', nome_arquivo="stars.png") }}" width="100%">
     </div>
 
 
