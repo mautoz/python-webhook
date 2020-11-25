@@ -36,6 +36,12 @@ Se você não alterou nada no Flask, substitua porta por 5000.
 
 6. (Opcional) É só passar a url do "Forwarding" para as pessoas que queiram classificar!
 
+# Exemplo de funcionamento
+
+![index](./imagens/example_classificar.png)
+
+![classificar](./imagens/example_classificar.png)
+
 # Troubleshooting
 
 - Verifique se em sua máquina o correto para rodar Python é "python3' ou 'python'.
