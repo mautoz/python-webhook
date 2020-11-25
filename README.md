@@ -46,7 +46,8 @@ sudo update-alternatives --config python3
 
 # Credito das imagens
 
-[review.png](https://halonotoriedade.com.br/wp-content/uploads/2018/06/review.png)
-[Review.png](https://reviewr.me/como-fazer-uma-gestao-de-reviews-eficiente/)
-[check.png](https://www.pngkey.com/maxpic/u2e6w7t4o0e6y3a9/)
-[stars.png](https://heyyoulanguages.com/wp-content/uploads/2020/08/Componente_5_%E2%80%93_1.png)
+- [review.png](https://halonotoriedade.com.br/wp-content/uploads/2018/06/review.png)
+- [Review.png](https://reviewr.me/como-fazer-uma-gestao-de-reviews-eficiente/)
+- [check.png](https://www.pngkey.com/maxpic/u2e6w7t4o0e6y3a9/)
+- [stars.png](https://heyyoulanguages.com/wp-content/uploads/2020/08/Componente_5_%E2%80%93_1.png)
+- [favicon.ico](https://favicon.io/emoji-favicons/star/)
