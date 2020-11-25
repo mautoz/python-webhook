@@ -38,7 +38,7 @@ Se você não alterou nada no Flask, substitua porta por 5000.
 
 # Exemplo de funcionamento
 
-![index](./imagens/example_classificar.png)
+![index](./imagens/example_index.png)
 
 ![classificar](./imagens/example_classificar.png)
 
