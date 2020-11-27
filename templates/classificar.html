@@ -19,17 +19,17 @@
                     <table class="table table-striped pb-2">
                         <tbody>
                             <tr class="h4">
-                                <th scope="row"><b>Nome do App: </b></th>
-                                <td><i>{{ review[1] }}</i></td>
+                                <th scope="row" class="w-25"><b>Nome do App: </b></th>
+                                <td class="w-75"><i>{{ review[1] }}</i></td>
                             </tr>
                             <tr class="h4">
-                                <th scope="row"><b>Review do usuário: </b></th>
-                                <td><i>{{ review[2] }}</i></td>
+                                <th scope="row" class="w-25"><b>Review do usuário: </b></th>
+                                <td class="w-75"><i>{{ review[2] }}</i></td>
                             </tr>
                         </tbody>
                     </table> 
                     <hr>
-                    <p class="h5 text-center"><b>Caso o review esteja confuso, incompleto, em uma língua diferente de inglês, apareça somente "NaN" ou por qualquer outra razão não seja possível classificá-lo, por favor, clique em "Pular".</b></p>         
+                    <p class="h5 text-center">Caso o review esteja confuso, incompleto, em uma língua diferente de <b>inglês</b>, apareça somente <b>"NaN"</b> ou por qualquer outra razão não seja possível classificá-lo, por favor, clique em <b>"Pular".</b></p>         
                     <p class="h3 text-center pt-2"><b>O review é de acessibilidade?</b></p>
                     <div class="form-group w-80">
                         <select class="custom-select col-md-12" name="a11y" required>
@@ -38,7 +38,7 @@
                             <option value="1">Sim! É de acessibilidade!</option>
                         </select>
                     </div>
-                    <p class="h5 text-center pt-3">Se o review for sobre acessibilidade (a11y), digite as palvras ou expressões chaves que te fizeram deicidir por isso. Por exemplo: "too bright", "eyestrain", "escuro", "falha no botão".</p>
+                    <p class="h5 text-center pt-3">Se o review for sobre acessibilidade, digite as palvras ou expressões chaves que te fizeram deicidir por isso. Por exemplo: "too bright", "eyestrain", "ads", "pop up".</p>
                     <p class="h5 text-center">Utilize vírgulas para separar as palavras/expressões.</p>
                     <div class="form-group">
                         <label for="console">Palavras/Expressões chaves:</label>
@@ -54,6 +54,7 @@
                     </div>          
                 </fieldset>
             </form>  
+            <p class="h4 text-center pt-3">Não há limite para classificação, pode ser 1 pode ser 10, pode ser mais... quanto mais puder, melhor! Obrigado!</p>
         </div>
         <img src="{{ url_for('imagem', nome_arquivo="stars.png") }}" width="100%">
     </div>
