@@ -2,17 +2,20 @@
 
 # ACH2018 - PSGII
 
-Este repositório faz parte do projeto de ACH2018 e funciona em comjunto com o [review-classifier](https://github.com/mautoz/reviews-classifier).
+Este repositório faz parte do projeto de ACH2018 e funciona em conjunto com o [review-classifier](https://github.com/mautoz/reviews-classifier) e o [review-automation-scripts](https://github.com/mautoz/reviews-automation-scripts).
+A função do script é funcionar como uma interface web para facilitar a avaliação humana dos reviews cadastrados no bd. Função indispensável, visto que para o treino da máquina é necessário de dados avaliados por pessoas.
 
 # Pré requisitos
 
 O código foi feito no Ubuntu 18.04.5 LTS e precisa ter instalado:
 
-- Python 3.7
-- Postgres >=10.14
+- Python >=3.6
 - Flask 1.1.2
+- psycopg2 2.8.6
+- Unicode 1.1.1 (Se for usar o pip, existe unicode e Unicode, escolha o último)
+- Postgres >=10.14
 
-Não esqueça de antes de executar esta parte, inserir no bd os reviews.
+Não esqueça de antes de executar esta parte, inserir no bd os reviews que estão no repositório [review-classifier](https://github.com/mautoz/reviews-classifier).
 
 # Instruções
 
@@ -44,13 +47,17 @@ Se você não alterou nada no Flask, substitua porta por 5000.
 
 # Troubleshooting
 
-- Verifique se em sua máquina o correto para rodar Python é "python3' ou 'python'.
+- Verifique se em sua máquina o correto para rodar Python é "python' ou 'python3';
+- Verifique se em sua máquina o correto para rodar pip é "pip' ou 'pip3';
 - É possível que não rode com Python 3.6 e sua máquina tem ambos (3.6 e 3.7) instalados. Verifique a versão certa e altere se necessário com:
 ```
-sudo update-alternatives --config python3
+sudo update-alternatives --config python3;
 ```
+- Utilize o 'Unicode' e não 'unicode'.
 
-# Credito das imagens
+# Creditos para das imagens
+
+As imagens utilizadas nas interfaces foram retiradas dos seguintes links:
 
 - [review.png](https://halonotoriedade.com.br/wp-content/uploads/2018/06/review.png)
 - [Review.png](https://reviewr.me/como-fazer-uma-gestao-de-reviews-eficiente/)
