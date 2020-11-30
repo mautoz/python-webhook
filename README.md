@@ -55,7 +55,7 @@ sudo update-alternatives --config python3
 ```
 - Utilize o 'Unicode' e não 'unicode'.
 
-# Creditos para das imagens
+# Creditos das imagens
 
 As imagens utilizadas nas interfaces foram retiradas dos seguintes links:
 
