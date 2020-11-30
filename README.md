@@ -3,7 +3,7 @@
 # ACH2018 - PSGII
 
 Este repositório faz parte do projeto de ACH2018 e funciona em conjunto com o [review-classifier](https://github.com/mautoz/reviews-classifier) e o [review-automation-scripts](https://github.com/mautoz/reviews-automation-scripts).
-A função do script é funcionar como uma interface web para facilitar a avaliação humana dos reviews cadastrados no bd. Função indispensável, visto que para o treino da máquina é necessário de dados avaliados por pessoas.
+O objetivo do script é funcionar como uma interface web para facilitar a avaliação humana dos reviews cadastrados no bd. Tarefa indispensável, visto que para o treino da máquina é necessário de dados avaliados por pessoas.
 
 # Pré requisitos
 
@@ -19,7 +19,7 @@ Não esqueça de antes de executar esta parte, inserir no bd os reviews que est�
 
 # Instruções
 
-1. Os reviews exibidos aqui foram retirados do mesmo bd do repositório [review-classifier](https://github.com/mautoz/reviews-classifier), sendo assim, verifique com cuidado suas configurações no seu PostgreSQL e altere com seus dados o [run](run.sh)!
+1. Os reviews exibidos aqui foram retirados do mesmo bd do repositório [review-classifier](https://github.com/mautoz/reviews-classifier), sendo assim, verifique com cuidado suas configurações no PostgreSQL, altere com seus dados o [run](run.sh) e certifique-se que já existam dados armazenados para review!
 
 2. Rode o [Run](run.sh):
 ```
