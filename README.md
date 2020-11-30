@@ -10,9 +10,9 @@ A função do script é funcionar como uma interface web para facilitar a avalia
 O código foi feito no Ubuntu 18.04.5 LTS e precisa ter instalado:
 
 - Python >=3.6
-- Flask 1.1.2
-- psycopg2 2.8.6
-- Unicode 1.1.1 (Se for usar o pip, existe unicode e Unicode, escolha o último)
+- Flask == 1.1.2
+- psycopg2 == 2.8.6
+- Unicode == 1.1.1 (Se for usar o pip, existe unicode e Unicode, escolha o último)
 - Postgres >=10.14
 
 Não esqueça de antes de executar esta parte, inserir no bd os reviews que estão no repositório [review-classifier](https://github.com/mautoz/reviews-classifier).
@@ -51,7 +51,7 @@ Se você não alterou nada no Flask, substitua porta por 5000.
 - Verifique se em sua máquina o correto para rodar pip é "pip' ou 'pip3';
 - É possível que não rode com Python 3.6 e sua máquina tem ambos (3.6 e 3.7) instalados. Verifique a versão certa e altere se necessário com:
 ```
-sudo update-alternatives --config python3;
+sudo update-alternatives --config python3
 ```
 - Utilize o 'Unicode' e não 'unicode'.
 

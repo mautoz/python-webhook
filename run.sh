@@ -5,7 +5,7 @@ export FLASK_APP=main.py
 export FLASK_ENV=development
 
 # Altere de acordo com o seu postgres
-export POSTGRES_HOST=localhost
+export POSTGRES_HOST=
 # Se seguiu as instruções do review-classifier o database será:
 # export POSTGRES_DATABASE=reviews-classifier
 export POSTGRES_DATABASE=
