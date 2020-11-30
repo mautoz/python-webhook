@@ -4,12 +4,14 @@
 export FLASK_APP=main.py
 export FLASK_ENV=development
 
-# Altere de acordo com o BD
+# Altere de acordo com o seu postgres
 export POSTGRES_HOST=localhost
-export POSTGRES_DATABASE=reviews-classifier
-export POSTGRES_USER=postgres
-export POSTGRES_PASSWORD=versatushpc
-export POSTGRES_PORT=5432
+# Se seguiu as instruções do review-classifier o database será:
+# export POSTGRES_DATABASE=reviews-classifier
+export POSTGRES_DATABASE=
+export POSTGRES_USER=
+export POSTGRES_PASSWORD=
+export POSTGRES_PORT=
 
 python3 -m flask run 
 

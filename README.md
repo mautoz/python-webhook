@@ -19,7 +19,7 @@ Não esqueça de antes de executar esta parte, inserir no bd os reviews que est�
 
 # Instruções
 
-1. Os reviews exibidos aqui foram retirados do mesmo bd do repositório [review-classifier](https://github.com/mautoz/reviews-classifier), sendo assim, verifique com cuidado suas configurações no PostgreSQL e altere no [run](run.sh)!
+1. Os reviews exibidos aqui foram retirados do mesmo bd do repositório [review-classifier](https://github.com/mautoz/reviews-classifier), sendo assim, verifique com cuidado suas configurações no seu PostgreSQL e altere com seus dados o [run](run.sh)!
 
 2. Rode o [Run](run.sh):
 ```
